@@ -1,0 +1,27 @@
+@startuml
+skinparam classAttributeIconSize 0
+interface Notificacao {
+  +canal(): String
+  +enviar(dest, msg)
+}
+class NotificacaoEmail
+class NotificacaoSms
+class NotificacaoPush
+abstract class Notificador {
+  #{abstract} criarNotificacao(): Notificacao
+  +{final} notificar(dest, assunto)
+}
+class NotificadorEmail { #criarNotificacao() }
+class NotificadorSms { #criarNotificacao() }
+class NotificadorPush { #criarNotificacao() }
+Notificacao <|.. NotificacaoEmail
+Notificacao <|.. NotificacaoSms
+Notificacao <|.. NotificacaoPush
+Notificador <|-- NotificadorEmail
+Notificador <|-- NotificadorSms
+Notificador <|-- NotificadorPush
+Notificador ..> Notificacao : usa
+NotificadorEmail ..> NotificacaoEmail : cria
+NotificadorSms ..> NotificacaoSms : cria
+NotificadorPush ..> NotificacaoPush : cria
+@enduml
