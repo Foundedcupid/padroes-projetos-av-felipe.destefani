@@ -1,5 +1,5 @@
 
-Exercícios de estudo (não são a prova). Estrutura no formato de entrega da avaliação.
+Felipe Destefani Nazario, Turma 1
 
 | Pasta | Padrão | Ideia central |
 |---|---|---|
